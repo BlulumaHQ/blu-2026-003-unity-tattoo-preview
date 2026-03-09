@@ -77,7 +77,11 @@
   }
 
   .artist-card {
-    @apply relative overflow-hidden group cursor-pointer;
+    @apply relative overflow-hidden cursor-pointer;
+  }
+
+  .artist-card.group {
+    /* keep group behavior via class name instead of @apply utility */
   }
 
   .artist-card-overlay {

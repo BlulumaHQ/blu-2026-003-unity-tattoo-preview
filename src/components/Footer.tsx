@@ -44,7 +44,7 @@ const Footer = () => {
             <h4 className="text-xs tracking-[0.2em] uppercase font-semibold text-white/70 mb-2" style={{ fontFamily: 'var(--font-body)' }}>Quick Links</h4>
             {[
               { label: "Home", path: "/" },
-              { label: "Artists", path: "/artists" },
+              
               { label: "The Shop", path: "/the-shop" },
               { label: "Aftercare", path: "/aftercare" },
               { label: "Contact", path: "/contact" },

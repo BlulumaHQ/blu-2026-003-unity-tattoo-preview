@@ -5,7 +5,7 @@ import logoSvg from "@/assets/unity-tattoo-logo.svg";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "Artists", path: "/artists" },
+  
   { label: "The Shop", path: "/the-shop" },
   { label: "Aftercare", path: "/aftercare" },
   { label: "Contact", path: "/contact" },
@@ -23,9 +23,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10" style={{ backgroundColor: 'hsl(0 0% 5% / 0.95)' }}>
-      <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
+      <div className="container mx-auto px-4 flex items-center justify-between h-[85px] md:h-[95px]">
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <img src={logoSvg} alt="Unity Tattoo" className="h-10 md:h-12 w-auto" />
+          <img src={logoSvg} alt="Unity Tattoo" className="h-[75px] md:h-[80px] w-auto" />
         </Link>
 
         {/* Desktop nav */}

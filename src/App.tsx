@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
-import Artists from "./pages/Artists";
+
 import ArtistDetail from "./pages/ArtistDetail";
 import TheShop from "./pages/TheShop";
 import Aftercare from "./pages/Aftercare";
@@ -35,7 +35,7 @@ const App = () => (
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/artists" element={<Artists />} />
+              
               <Route path="/artists/:slug" element={<ArtistDetail />} />
               <Route path="/the-shop" element={<TheShop />} />
               <Route path="/aftercare" element={<Aftercare />} />

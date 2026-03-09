@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { artists } from "@/data/artists";
 
-const recentWorkImages = [
+const allRecentWorkImages = [
   "/images/portfolio/tattoo-snake-bg.webp",
   "/images/portfolio/tattoo-moon-woman.webp",
   "/images/portfolio/tattoo-frog-samurai.webp",
@@ -12,7 +13,24 @@ const recentWorkImages = [
   "/images/portfolio/tattoo-strawberry-heart.webp",
   "/images/portfolio/tattoo-cat-portrait.webp",
   "/images/portfolio/tattoo-statue-realism.webp",
+  "/images/portfolio/tattoo-dotwork-mandala.jpg",
+  "/images/portfolio/tattoo-fineline-botanical.jpg",
+  "/images/portfolio/tattoo-fineline-portrait.jpg",
+  "/images/portfolio/tattoo-japanese-dragon.jpg",
+  "/images/portfolio/tattoo-neo-trad-skull-rose.jpg",
+  "/images/portfolio/tattoo-trad-eagle.jpg",
+  "/images/portfolio/tattoo-watercolor-bird.jpg",
+  "/images/portfolio/tattoo-wolf-realism.jpg",
 ];
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 const reviews = [
   {
@@ -33,6 +51,8 @@ const reviews = [
 ];
 
 const Index = () => {
+  const recentWorkImages = useMemo(() => shuffleArray(allRecentWorkImages).slice(0, 8), []);
+
   return (
     <>
       {/* Hero Section — white bg context (above fold) */}
@@ -125,10 +145,19 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="section-heading mb-16"
+            className="section-heading mb-4"
           >
             Our Artists
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-center text-muted-foreground mb-16 max-w-xl mx-auto"
+          >
+            Meet the talented team behind Unity Tattoo. Each artist brings their own unique style and expertise.
+          </motion.p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
             {artists.map((artist, index) => (
@@ -155,12 +184,6 @@ const Index = () => {
                 </Link>
               </motion.div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/artists" className="cta-button">
-              View All Artists
-            </Link>
           </div>
         </div>
       </section>

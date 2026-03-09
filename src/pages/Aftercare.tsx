@@ -41,7 +41,7 @@ const Aftercare = () => {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="flex gap-6"
             >
-              <span className="text-3xl font-bold text-primary/40 shrink-0">{index + 1}</span>
+              <span className="text-3xl font-serif text-muted-foreground/30 shrink-0">{index + 1}</span>
               <p className="text-muted-foreground leading-relaxed pt-1">{step}</p>
             </motion.div>
           ))}
@@ -52,13 +52,13 @@ const Aftercare = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card border border-border rounded p-8"
+          className="bg-card border border-border rounded-sm p-8"
         >
-          <h2 className="text-lg font-bold tracking-[0.15em] uppercase mb-6">Important Tips</h2>
+          <h2 className="text-xl font-serif mb-6">Important Tips</h2>
           <ul className="space-y-4">
             {tips.map((tip, index) => (
               <li key={index} className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground/30 shrink-0 mt-2" />
                 <p className="text-muted-foreground text-sm leading-relaxed">{tip}</p>
               </li>
             ))}
@@ -73,7 +73,7 @@ const Aftercare = () => {
           className="text-muted-foreground text-sm text-center mt-12"
         >
           Aftercare may vary depending on the artist. Please email the shop at{" "}
-          <a href="mailto:unitytattoo@gmail.com" className="text-primary hover:underline">
+          <a href="mailto:unitytattoo@gmail.com" className="text-foreground hover:underline">
             unitytattoo@gmail.com
           </a>{" "}
           if you have any questions.

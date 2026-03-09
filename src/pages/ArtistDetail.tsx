@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { artists } from "@/data/artists";
+import ImageLightbox from "@/components/ImageLightbox";
 
 const ArtistDetail = () => {
   const { slug } = useParams();
   const artist = artists.find((a) => a.slug === slug);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   if (!artist) {
     return (
@@ -15,6 +19,13 @@ const ArtistDetail = () => {
     );
   }
 
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const bookingUrl = `/contact?artist=${encodeURIComponent(artist.name)}`;
+
   return (
     <>
       {/* Artist Header */}
@@ -23,7 +34,7 @@ const ArtistDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold tracking-[0.2em] uppercase mb-8"
+          className="text-4xl md:text-6xl font-serif mb-8"
         >
           {artist.name}
         </motion.h1>
@@ -31,7 +42,8 @@ const ArtistDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-sm tracking-[0.2em] uppercase text-primary mb-4"
+          className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {artist.specialty}
           {artist.isGuest && " · Guest Artist"}
@@ -49,7 +61,7 @@ const ArtistDetail = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
         >
-          <Link to="/contact" className="cta-button">
+          <Link to={bookingUrl} className="cta-button">
             Book with {artist.name.split(" ")[0]}
           </Link>
         </motion.div>
@@ -65,7 +77,8 @@ const ArtistDetail = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="aspect-square overflow-hidden"
+                className="aspect-square overflow-hidden cursor-pointer"
+                onClick={() => openLightbox(index)}
               >
                 <img
                   src={img}
@@ -78,6 +91,16 @@ const ArtistDetail = () => {
           </div>
         </div>
       </section>
+
+      <ImageLightbox
+        images={artist.gallery}
+        currentIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNext={() => setLightboxIndex((prev) => (prev + 1) % artist.gallery.length)}
+        onPrev={() => setLightboxIndex((prev) => (prev - 1 + artist.gallery.length) % artist.gallery.length)}
+        altPrefix={`${artist.name} work`}
+      />
     </>
   );
 };

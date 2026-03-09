@@ -16,8 +16,8 @@ const StickyBookingCTA = () => {
         </Link>
       </div>
 
-      {/* Mobile - Floating bottom */}
-      <div className="md:hidden fixed bottom-6 right-6 z-40">
+      {/* Mobile - Floating bottom left (right side reserved for scroll-to-top) */}
+      <div className="md:hidden fixed bottom-6 left-6 z-40">
         <Link
           to="/contact"
           className="flex items-center gap-2 bg-foreground text-background px-5 py-3 text-xs tracking-[0.15em] uppercase font-medium rounded-full shadow-xl hover:bg-foreground/90 transition-colors"

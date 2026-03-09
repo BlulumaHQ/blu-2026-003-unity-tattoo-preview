@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
+import logoSvg from "@/assets/unity-tattoo-logo.svg";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -24,7 +25,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10" style={{ backgroundColor: 'hsl(0 0% 5% / 0.95)' }}>
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <span className="text-base md:text-lg tracking-[0.35em] uppercase text-white/90 font-serif">Unity Tattoo</span>
+          <img src={logoSvg} alt="Unity Tattoo" className="h-10 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop nav */}

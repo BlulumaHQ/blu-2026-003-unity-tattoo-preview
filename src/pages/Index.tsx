@@ -4,14 +4,14 @@ import { Star } from "lucide-react";
 import { artists } from "@/data/artists";
 
 const recentWorkImages = [
-  "/images/artist-heather.webp",
-  "/images/artist-paige.webp",
-  "/images/artist-bronson.webp",
-  "/images/artist-jesse.webp",
-  "/images/artist-soodie.webp",
-  "/images/artist-brianne.webp",
-  "/images/artist-atisha.webp",
-  "/images/artist-jay.webp",
+  "/images/portfolio/tattoo-snake-bg.webp",
+  "/images/portfolio/tattoo-moon-woman.webp",
+  "/images/portfolio/tattoo-frog-samurai.webp",
+  "/images/portfolio/tattoo-eagle-snake.webp",
+  "/images/portfolio/tattoo-robot-helmet.webp",
+  "/images/portfolio/tattoo-strawberry-heart.webp",
+  "/images/portfolio/tattoo-cat-portrait.webp",
+  "/images/portfolio/tattoo-statue-realism.webp",
 ];
 
 const reviews = [
@@ -35,7 +35,7 @@ const reviews = [
 const Index = () => {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section — white bg context (above fold) */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -81,8 +81,8 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* About Preview */}
-      <section className="py-24 md:py-32">
+      {/* 1. About Preview — WHITE */}
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -117,8 +117,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Artists Section - B/W to Color on Hover */}
-      <section className="py-24 md:py-32 bg-card">
+      {/* 2. Artists Section — GREY */}
+      <section className="py-24 md:py-32 bg-muted">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -165,87 +165,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Our Space */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="section-heading mb-16"
-          >
-            Our Space
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="aspect-video overflow-hidden"
-            >
-              <img
-                src="/images/shop-exterior.jpg"
-                alt="Unity Tattoo storefront"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="aspect-video overflow-hidden"
-            >
-              <img
-                src="/images/shop-interior.webp"
-                alt="Unity Tattoo studio interior"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recent Work */}
-      <section className="py-24 md:py-32 bg-card">
-        <div className="container mx-auto px-4 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="section-heading mb-16"
-          >
-            Recent Work
-          </motion.h2>
-          <div className="gallery-grid">
-            {recentWorkImages.map((src, num) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: num * 0.05 }}
-                className="aspect-square overflow-hidden"
-              >
-                <img
-                  src={src}
-                  alt={`Recent tattoo work ${num + 1}`}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Google Reviews */}
-      <section className="py-24 md:py-32">
+      {/* 3. What People Say / Reviews — WHITE (moved up, replacing Our Space) */}
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -287,8 +208,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Location Section */}
-      <section className="py-24 md:py-32 bg-card">
+      {/* 4. Recent Work — GREY */}
+      <section className="py-24 md:py-32 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="section-heading mb-16"
+          >
+            Recent Work
+          </motion.h2>
+          <div className="gallery-grid">
+            {recentWorkImages.map((src, num) => (
+              <motion.div
+                key={num}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: num * 0.05 }}
+                className="aspect-square overflow-hidden"
+              >
+                <img
+                  src={src}
+                  alt={`Recent tattoo work ${num + 1}`}
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Location Section — WHITE */}
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -324,8 +279,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 md:py-32 text-center">
+      {/* CTA Section — matches next alternation */}
+      <section className="py-24 md:py-32 bg-muted text-center">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

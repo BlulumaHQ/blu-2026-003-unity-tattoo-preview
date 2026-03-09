@@ -8,15 +8,15 @@ const TheShop = () => {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-shop.jpg')" }}
+          style={{ backgroundImage: "url('/images/shop-exterior.jpg')" }}
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 text-center px-4">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold tracking-[0.2em] uppercase text-foreground"
+            className="text-4xl md:text-6xl font-serif text-white"
           >
             The Shop
           </motion.h1>
@@ -67,23 +67,34 @@ const TheShop = () => {
             Our Space
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-            {[1, 2, 3, 4].map((num) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: num * 0.1 }}
-                className="aspect-video overflow-hidden"
-              >
-                <img
-                  src={`/images/tattoo-work-${num}.jpg`}
-                  alt={`Studio view ${num}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="aspect-video overflow-hidden"
+            >
+              <img
+                src="/images/shop-exterior.jpg"
+                alt="Unity Tattoo storefront"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="aspect-video overflow-hidden"
+            >
+              <img
+                src="/images/shop-interior.webp"
+                alt="Unity Tattoo studio interior"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -98,7 +109,7 @@ const TheShop = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-lg font-bold tracking-[0.15em] uppercase mb-4">Location</h3>
+              <h3 className="text-xl font-serif mb-4">Location</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 1395 Commercial Drive<br />
                 Vancouver, BC Canada
@@ -110,10 +121,10 @@ const TheShop = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h3 className="text-lg font-bold tracking-[0.15em] uppercase mb-4">Contact</h3>
+              <h3 className="text-xl font-serif mb-4">Contact</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 604-423-3343<br />
-                <a href="mailto:unitytattoo@gmail.com" className="hover:text-primary transition-colors">
+                <a href="mailto:unitytattoo@gmail.com" className="hover:text-foreground transition-colors">
                   unitytattoo@gmail.com
                 </a>
               </p>
@@ -124,7 +135,7 @@ const TheShop = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-lg font-bold tracking-[0.15em] uppercase mb-4">Book Now</h3>
+              <h3 className="text-xl font-serif mb-4">Book Now</h3>
               <Link to="/contact" className="cta-button text-sm">
                 Make an Appointment
               </Link>

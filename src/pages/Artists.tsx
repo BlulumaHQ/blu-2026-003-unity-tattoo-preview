@@ -32,34 +32,28 @@ const Artists = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <Link to={`/artists/${artist.slug}`} className="artist-card block">
+                <Link to={`/artists/${artist.slug}`} className="group relative block overflow-hidden">
                   <div className="aspect-square">
                     <img
                       src={artist.image}
                       alt={artist.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
-                  <div className="artist-card-overlay flex-col gap-2">
-                    <span className="text-lg font-bold tracking-[0.15em] uppercase text-foreground">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                    <span className="font-serif text-xl md:text-2xl text-white text-center leading-tight px-4">
                       {artist.name}
                     </span>
-                    <span className="text-xs tracking-wider text-muted-foreground">
+                    <span className="text-xs tracking-wider text-white/60" style={{ fontFamily: 'var(--font-body)' }}>
                       {artist.specialty}
                     </span>
                     {artist.isGuest && (
-                      <span className="text-xs tracking-wider text-primary font-semibold">Guest Artist</span>
+                      <span className="text-[10px] tracking-widest uppercase font-semibold text-white/80 bg-white/10 px-3 py-1" style={{ fontFamily: 'var(--font-body)' }}>Guest Artist</span>
                     )}
                   </div>
                 </Link>
-                <div className="bg-card p-4 text-center">
-                  <h3 className="text-sm font-bold tracking-[0.15em] uppercase mb-1">{artist.name}</h3>
-                  <p className="text-xs text-muted-foreground tracking-wide">{artist.specialty}</p>
-                  {artist.isGuest && (
-                    <span className="text-[10px] text-primary tracking-widest uppercase font-semibold">(Guest)</span>
-                  )}
-                </div>
               </motion.div>
             ))}
           </div>

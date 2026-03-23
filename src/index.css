@@ -41,6 +41,10 @@
     --footer-bg: 0 0% 5%;
     --footer-fg: 0 0% 95%;
 
+    --funnel-dark: 0 0% 8%;
+    --funnel-dark-fg: 0 0% 95%;
+    --funnel-accent: 45 100% 51%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 10%;
     --sidebar-primary: 0 0% 12%;
@@ -87,6 +91,32 @@
     @apply inline-block border border-white/40 px-8 py-3 text-sm tracking-[0.15em] uppercase font-medium transition-all duration-300 text-white;
     font-family: var(--font-body);
     @apply hover:bg-white hover:border-white hover:text-black;
+  }
+
+  .cta-button-bold {
+    @apply inline-block px-10 py-4 text-sm md:text-base tracking-[0.15em] uppercase font-semibold transition-all duration-300;
+    font-family: var(--font-body);
+    background-color: hsl(var(--funnel-accent));
+    color: hsl(0 0% 5%);
+    @apply hover:scale-105 hover:shadow-xl;
+  }
+
+  .cta-button-bold-outline {
+    @apply inline-block px-10 py-4 text-sm md:text-base tracking-[0.15em] uppercase font-semibold transition-all duration-300 border-2;
+    font-family: var(--font-body);
+    border-color: hsl(var(--funnel-accent));
+    color: hsl(var(--funnel-accent));
+    @apply hover:scale-105;
+  }
+
+  .cta-button-bold-outline:hover {
+    background-color: hsl(var(--funnel-accent));
+    color: hsl(0 0% 5%);
+  }
+
+  .funnel-dark-section {
+    background-color: hsl(var(--funnel-dark));
+    color: hsl(var(--funnel-dark-fg));
   }
 
   .artist-card {
